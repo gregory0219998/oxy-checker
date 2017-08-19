@@ -173,13 +173,13 @@ echo "[ CONSENSUS ]\n";
             
             echo "\t\t\tEnabling forging on slave..\n";
             foreach($secret as $sec){
-              echo "\t\t\tEnabling forging on slave for secret: $sec\n";
+              echo "\t\t\tEnabling forging on slave for secret: \n";
               enableForging($slavenode.":".$slaveport, $sec);
             }
 
             echo "\t\t\tDisabling forging on master..\n";
             foreach($secret as $sec){
-              echo "\t\t\tDisabling forging on master for secret: $sec\n";
+              echo "\t\t\tDisabling forging on master for secret: \n";
               disableForging($masternode.":".$masterport, $sec);
             }
           }
@@ -239,14 +239,14 @@ echo "[ CONSENSUS ]\n";
               // Enable forging on master
               echo "\t\t\tEnabling forging on master..\n";
               foreach($secret as $sec){
-                echo "\t\t\tEnabling forging on master for secret: $sec\n";
+                echo "\t\t\tEnabling forging on master for secret: \n";
                 enableForging($masternode.":".$masterport, $sec);
               }
 
               // Disable forging on slave
               echo "\t\t\tDisabling forging on slave..\n";
               foreach($secret as $sec){
-                echo "\t\t\tDisabling forging on slave for secret: $sec\n";
+                echo "\t\t\tDisabling forging on slave for secret: \n";
                 disableForging($slavenode.":".$slaveport, $sec);
               }
 
@@ -290,13 +290,13 @@ echo "[ CONSENSUS ]\n";
           if($consensusMaster > $consensusSlave){
             // Enable forging on master
             foreach($secret as $sec){
-              echo "\t\t\tEnabling forging on master for secret: $sec\n";
+              echo "\t\t\tEnabling forging on master for secret: \n";
               enableForging($masternode.":".$masterport, $sec);
             }
           }else{
             // Enabling forging on slave
             foreach($secret as $sec){
-              echo "\t\t\tEnabling forging on slave for secret: $sec\n";
+              echo "\t\t\tEnabling forging on slave for secret: \n";
               enableForging($slavenode.":".$slaveport, $sec);
             }
           } // END: COMPARE CONSENSUS
