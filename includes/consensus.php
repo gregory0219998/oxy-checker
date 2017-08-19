@@ -100,7 +100,7 @@ echo "[ CONSENSUS ]\n";
           }
 
           foreach($secret as $sec){
-            echo "\t\t\tEnabling forging on slave for secret: $sec\n";
+            echo "\t\t\tEnabling forging on slave for secret: \n";
             enableForging($slavenode.":".$slaveport, $sec);
           }
         }
@@ -119,7 +119,7 @@ echo "[ CONSENSUS ]\n";
         // Forging on the slave should be/stay disabled for every secret until we perform a consensus check.
         // This way we ensure that forging is only disabled on nodes the master chooses.
         foreach($secret as $sec){
-          echo "\t\t\tDisabling forging on slave for secret: $sec\n";
+          echo "\t\t\tDisabling forging on slave for secret: \n";
           disableForging($slavenode.":".$slaveport, $sec);
         }
 
