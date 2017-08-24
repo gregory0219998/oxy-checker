@@ -45,6 +45,9 @@ You can clone this into every directory of your choosing. I usually just clone i
 ```
 git clone https://github.com/Oxycoin/oxy-checker.git
 ```
+To create the encrypted seed modify and run crypt.php
+```php crypt.php```
+
 * Change settings inside config.php to match your needs
 * Edit your crontab with the example below
 
