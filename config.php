@@ -1,4 +1,18 @@
 <?php
+$encrypted = 'encryptedseed';
+$key = 'passwordtodecrypt';
+$data = base64_decode($encrypted);
+$iv = substr($data, 0, mcrypt_get_iv_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC));
+$decrypted = rtrim(
+    mcrypt_decrypt(
+        MCRYPT_RIJNDAEL_128,
+        hash('sha256', $key, true),
+        substr($data, mcrypt_get_iv_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC)),
+        MCRYPT_MODE_CBC,
+        $iv
+    ),
+    "\0"
+);
 	/**
 	 * @author Jan
 	 * @link https://github.com/Oxycoin/oxycoin-checker
@@ -34,7 +48,7 @@ __________________________ */
 	$slaveport      = 7778;                                 // Slave port with SSL
 	$threshold      = 50;                                   // Percentage of consensus threshold
 	$apiHost        = "$masternode:$masterport";		// Used to calculate $publicKey by $secret. Use $masternode or $slavenode
-	$secret         = array("");                            // Add your secrets here. If you want to forge multiple, add extra to the array. 
+	$secret         = array("$decrypted");                            // Add your secrets here. If you want to forge multiple, add extra to the array. 
 
 // Snapshot settings
 	$snapshotDir	= $homeDir."oxy-snapshot/";		// Base folder of oxy-snapshot
